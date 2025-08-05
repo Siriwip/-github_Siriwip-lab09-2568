@@ -9,7 +9,8 @@ export default function CounterPage() {
 
   return (
     <div className="text-center mt-5">
-      <h2>Counter: {count}</h2>
+      <h2>Counter Page</h2>
+      <p className="fs-6 my-3">Counter: {count}</p>
       <button className="btn btn-primary" onClick={increase}>
         Increase
       </button>

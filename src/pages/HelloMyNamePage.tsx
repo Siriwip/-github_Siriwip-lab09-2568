@@ -2,14 +2,17 @@ import { useState } from "react";
 
 export default function HelloMyNamePage() {
   const [name, setName] = useState("");
-  const [greeted, setGreeted] = useState(false);
 
   const handleGreet = () => {
-    setGreeted(true);
+    if (name.trim() === "") {
+      alert("Please insert your name");
+    } else {
+      alert(`Hello, ${name}!`);
+    }
   };
 
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-5">
       <h3>Hello My Name</h3>
 
       <input
@@ -24,14 +27,11 @@ export default function HelloMyNamePage() {
         Greet Me
       </button>
 
-      {/* Result Text */}
-      <p className="mt-3">
-        {!greeted
-          ? ""
-          : name.trim() === ""
-          ? "Please insert your name"
-          : `Hello, ${name}!`}
-      </p>
+      {name.trim() === "" ? (
+        <p className="text-danger mt-2">Please insert your name</p>
+      ) : (
+        <p className="mt-2">Hello, {name}!</p>
+      )}
     </div>
   );
 }
